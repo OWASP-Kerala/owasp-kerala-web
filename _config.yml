@@ -1,0 +1,25 @@
+title: OWASP Kerala
+description: >
+  The Open Web Application Security Project. Kerala Chapter.
+copyright: kerala.owasp.com
+sass:
+  sass_dir: assets/sass
+  style: compressed
+url:
+safe:                 false
+include:              [".htaccess"]
+exclude:              ["Gemfile", "Gemfile.lock", "node_modules", "gulpfile.js", "composer.json", "composer.lock", "package.json", "build", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+keep_files:           [".git"]
+encoding:             "utf-8"
+markdown_ext:         "markdown,mkdown,mkdn,mkd,md"
+source: app
+destination: ./.jekyllbuild/
+excerpt_separator: "<!--more-->"
+
+# Select which share links to show in posts
+share-links-active:
+  twitter: true
+  facebook: true
+  google: true
+  linkedin: true
+

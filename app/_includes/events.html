@@ -1,0 +1,60 @@
+        <section class="events-intro" id="events">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 nopadding">
+                        <div class="past-events">
+                            <h1><i class="fa fa-calendar"></i> Past Events</h1>
+                            <ul>
+                                {% for event in site.data.events['past'] %}
+                                <li>
+                                    <h3 class="event-name">{{ event.name }}</h3>
+                                    <span class="event-date"><b>{{ event.date }}</b></span>
+                                    <span class="event-venue">{{ event.venue }}</span>
+                                    {% if event.link %}
+                                    <span><a href="{{ event.link }}">More Details</a></span>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 nopadding">
+                        <div class="upcoming-events">
+                            <h1><i class="fa fa-calendar"></i> Up Coming Events</h1>
+                            <ul>
+
+                                {% for event in site.data.events['upcoming'] %}
+                                <li>
+                                    <h3 class="event-name">{{ event.name }}</h3>
+                                    <span class="event-date"><b>{{ event.date }}</b></span>
+                                    <span class="event-venue">{{ event.venue }}</span>
+
+                                    {% if event.link %}
+                                        <span><a href="{{ event.link }}">More Details</a></span>
+                                    {% endif %}
+                                    {% if event.eventbrite-id %}
+                                        </br>
+                                        <div class="iframe-wrapper" >
+                                            <iframe
+                                                src="//eventbrite.com/tickets-external?eid={{ event.eventbrite-id }}&ref=etckt" frameborder="0"
+                                                height="296"
+                                                width="100%"
+                                                vspace="0" hspace="0"
+                                                marginheight="5" marginwidth="5" scrolling="auto"
+                                                allowtransparency="true">
+                                            </iframe>
+                                        </div>
+
+                                    {% endif %}
+
+                                </li>
+                                {% endfor %}
+                                <li class="hide">
+                                    <p class="no-events">No Upcoming Events Scheduled.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

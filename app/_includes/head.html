@@ -1,0 +1,42 @@
+	<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>OWASP Kerala</title>
+        <meta name="description" content="The Open Web Application Security Project. Kerala Chapter." />
+        <meta name="keywords" content="OWASP, Kerala, Web, application, Security" />
+
+        {% include social-meta.html %}
+
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <!-- build:css /styles/vendor.css -->
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+        <!-- bower:css -->
+        <!-- endbower -->
+        <link rel="stylesheet" href="/bower_components/slick-carousel/slick/slick-theme.css">
+        <!-- endbuild -->
+
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+        <link rel="stylesheet" href="{{ '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'| prepend: site.baseurl }}">
+        <link rel="stylesheet" href="{{ '//fonts.googleapis.com/css?family=Nunito:400,300,700' }}">
+        <link rel="stylesheet" href="{{ '//fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700,400italic,700italic' }}">
+
+        <!-- build:css /styles/main.css -->
+
+        <link rel="stylesheet" href="{{ '/styles/styles.css' | prepend: site.baseurl }}">
+        <link rel="stylesheet" href="{{ '/styles/queries.css' | prepend: site.baseurl }}">
+        <!-- endbuild -->
+
+        <!-- build:js /scripts/vendor/modernizr.js -->
+        <script src="/bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>

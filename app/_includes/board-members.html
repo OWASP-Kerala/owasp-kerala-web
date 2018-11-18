@@ -1,0 +1,30 @@
+        <section class="members-intro" id="members">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="no-btm-margin">Board Members</h1>
+                        <p class="sub-title">Meet the fabulous team behind OWASP Kerala.</p>
+
+                        <div id="member-slide" data-flickity='{ "groupCells": 4, "autoPlay": true, "contain": true,  "imagesLoaded": true, "percentPosition": false, "wrapAround": true, "prevNextButtons": false, "watchCSS": true }'>
+                            {% for member in site.data.board-members %}
+                                <div class="member-details">
+                                    <a href="{{member.web}}" target="_blank">
+                                        <div class="avatar">
+                                            {% if member.image %}
+                                            <img class="avatar-image" src="/images/board-members/{{ member.image }}.png" alt="{{member.name}}">
+                                            {% else %}
+                                            <img class="avatar-image" src="/images/board-members/avatar.png" alt="{{member.name}}">
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                    <span class="name"> {{member.name}}</span>
+                                    <span class="designation">{{member.role}}</span>
+                                    <span class="company">{{member.company}}</span>
+                                </div>
+                             {% endfor %}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>

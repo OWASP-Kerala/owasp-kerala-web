@@ -1,0 +1,48 @@
+upcoming:
+  -
+    name: OWASP Kerala Chapter Meet
+    date: Dec 1st 2018
+    venue: Details will be updated soon
+    # link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
+    # add eventbrite event id as following to add eventbrite event widget to the upcoming events
+    # eventbrite-id: 37384870153
+past:
+  -
+    name: CODESEC - Policing the future
+    date: Apr 28th, 2018
+    venue: Zenith Hall, Bhavani building, Technopark, Trivandrum
+    link: https://www.owasp.org/index.php/Kerala_CODESEC_April_2018_cyberdome
+  -
+    name: Workshop on Android Penetration Testing
+    date: Sep 8th, 2017
+    venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
+    link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
+  -
+    name: CODESEC - Secure your code
+    date: Dec 9th, 2016
+    venue: Travencore Hall, Park Center, Technopark, Trivandrum, Kerala
+    link: https://www.owasp.org/index.php/Kerala_CODESEC_dec_2016_cyberdome
+  -
+    name: OWASP Kerala Chapter Meet
+    date: Nov 3rd, 2016
+    venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
+    link: https://www.owasp.org/index.php/Kerala_chapter_meet_sep_2016_iiitmk
+  -
+    name: State Workshop on Application Security in eGovernance
+    date: 29th - 31st March, 2016
+    venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
+    link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
+  -
+    name: Panel Discussion on Mobile Application Security
+    date: Dec. 3rd, 2015
+    venue: Trivandrum Tamil Sangam
+    link: https://www.owasp.org/index.php/Kerala_chapter_student_panel_discussion_thamil_sangam
+  -
+    name: Sec_rity is not without U
+    date: Nov. 18th, 2015
+    venue: Institution of Engineers (India), Kerala State Centre, Trivandrum
+    link: https://www.owasp.org/index.php/Kerala_chapter_institution_of_engineers_sec_rity_without_u
+  -
+    name: Building a Secure Internet
+    date: Feb. 26th, 2016
+    venue: Sarabhai Institute of Science and Technology, Uriyacode, Vellanad, Trivandrum
