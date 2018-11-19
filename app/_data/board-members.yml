@@ -27,7 +27,7 @@
     role: Workshops & CTF Coordinator
     web: https://www.linkedin.com/in/danesh-elias-293bbb44
     company: Shieldhub
-    # image: danesh
+    image: danesh
 -
     name: Sreelakshmy P
     role: Women in AppSec Coordinator
@@ -39,7 +39,7 @@
     role: PR & Marketing Coordinator
     web: https://www.linkedin.com/in/hemanth-joseph
     company: UST Global
-    # image: hemanth
+    image: hemanth
 -
     name: Arun S Kumar
     role: Conference Coordinator
@@ -63,4 +63,4 @@
     role: Workshops & CTF Coordinator
     web: https://www.linkedin.com/in/sreehari-haridas
     company: UST Global
-    # image: sreehari
+    image: sreehari
