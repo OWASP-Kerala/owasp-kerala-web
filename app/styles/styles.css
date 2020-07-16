@@ -1176,6 +1176,7 @@ Nav Overlay
     opacity: 1;
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
+    z-index: 99;
 }
 .overlay-boxify nav ul li {
     opacity: 0;
@@ -1297,3 +1298,6 @@ Contact Section
     color: #778899;
     font-family: "Source Sans Pro", sans-serif;
 }
+
+
+

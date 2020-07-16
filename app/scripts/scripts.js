@@ -1,5 +1,15 @@
 $(document).ready(function() {
 
+	// $('.owl-carousel').owlCarousel();
+	var owl = $(".owl-carousel");
+    owl.owlCarousel({
+		items: 5,
+		loop:true,
+        autoplay: true,
+		autoPlayTimeout: 4000,
+		autoplaySpeed: 1000,
+        autoplayHoverPause: true
+    });
 	/***************** Waypoints ******************/
 
 	$('.wp1').waypoint(function() {
