@@ -1,30 +1,31 @@
-// generated on 2018-09-19 using generator-webapp 3.0.1
-const gulp = require('gulp');
-const cp = require('child_process');
-const gulpLoadPlugins = require('gulp-load-plugins');
-const browserSync = require('browser-sync').create();
-const del = require('del');
-const wiredep = require('wiredep').stream;
-const runSequence = require('run-sequence');
-const debug = require('gulp-debug');
-const $ = gulpLoadPlugins();
-const reload = browserSync.reload;
 
-const jekyll      = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
-const bundle      = 'bundle';
+'use strict';
+var gulp = require('gulp'),
+    cp = require('child_process'),
+    mgulpLoadPlugins = require('gulp-load-plugins'),
+    browserSync = require('browser-sync').create(),
+    del = require('del'),
+    wiredep = require('wiredep').stream,
+    runSequence = require('run-sequence'),
+    debug = require('gulp-debug'),
+    reload = browserSync.reload
+;
+const gulpLoadPlugins = require('gulp-load-plugins');
+const $ = gulpLoadPlugins();
+
+var jekyll      = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+var bundle      = 'bundle';
 
 let dev = true;
 
-/**
- * Build the Jekyll Site
- */
-gulp.task('jekyll-build', function (done) {
-    "use strict"
-    return cp.spawn(bundle, ['exec','jekyll','b'], {stdio: 'inherit'})
-        .on('close', done);
-});
+// -->
+// Build the Jekyll Site
+// <--
+function jekyllBuild() {
+  return cp.spawn("bundle", ["exec", "jekyll", "build"], { stdio: "inherit" });
+}
 
-gulp.task('styles', () => {
+function minifyCss() {
   return gulp.src('.jekyllbuild/styles/*.scss')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
@@ -34,12 +35,12 @@ gulp.task('styles', () => {
       includePaths: ['.']
     }).on('error', $.sass.logError))
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
-    .pipe($.if(dev, $.sourcemaps.write()))
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
-});
+}
 
-gulp.task('scripts', () => {
+function minifyJs() {
   return gulp.src('.jekyllbuild/scripts/**/*.js')
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
@@ -47,7 +48,7 @@ gulp.task('scripts', () => {
     .pipe($.if(dev, $.sourcemaps.write('.')))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
-});
+}
 
 function lint(files) {
   return gulp.src(files)
@@ -57,16 +58,18 @@ function lint(files) {
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
 }
 
-gulp.task('lint', () => {
-  return lint('.jekyllbuild/scripts/*.js')
+function lintJs() {
+  return lint('.jekyllbuild/scripts/**/*.js')
     .pipe(gulp.dest('app/scripts'));
-});
-gulp.task('lint:test', () => {
-  return lint('test/spec/**/*.js')
-    .pipe(gulp.dest('test/spec'));
-});
+}
 
-gulp.task('html', ['styles', 'scripts'], () => {
+function moveCss() {
+  return gulp.src('.tmp/styles/**.css')
+    .pipe(gulp.dest('app/styles'));
+}
+
+
+function html() {
   return gulp.src(['.jekyllbuild/*.html', '.jekyllbuild/**/*.html', '.jekyllbuild/**/*.xml', '.jekyllbuild/**/**/**/**/*.html', '.jekyllbuild/**/**/*.html'])
     .pipe($.useref({searchPath: ['.tmp', '.jekyllbuild', '.jekyllbuild/blog/', '.jekyllbuild/blog/**/**/**/', '.jekyllbuild/tag/**/', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
@@ -82,22 +85,26 @@ gulp.task('html', ['styles', 'scripts'], () => {
       removeStyleLinkTypeAttributes: true
     })))
     .pipe(gulp.dest('dist'));
-});
+}
 
-gulp.task('images', () => {
+function images() {
   return gulp.src('.jekyllbuild/images/**/*')
     // .pipe($.cache($.imagemin()))
     .pipe(gulp.dest('dist/images'));
-});
+}
 
-gulp.task('fonts', () => {
+function fonts() {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('.jekyllbuild/fonts/**/*'))
     .pipe($.if(dev, gulp.dest('.tmp/fonts'), gulp.dest('dist/fonts')));
-});
+}
 
-gulp.task('extras', () => {
+function extras() {
   return gulp.src([
+    './*vendor/*.php',
+    './*vendor/composer/*.php',
+    './*vendor/sendgrid/**/lib/**/*.php',
+    './*vendor/sendgrid/**/lib/**/**/*.php',
     '.jekyllbuild/*',
     '!.jekyllbuild/index.js',
     '!.jekyllbuild/*.html',
@@ -107,90 +114,71 @@ gulp.task('extras', () => {
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
-});
+}
 
-gulp.task('clean', del.bind(null, ['.jekyllbuild', '.tmp', 'dist']));
+function clean() {
+  return del(["dist", ".tmp", ".jekyllbuild"]);
+}
 
-gulp.task('serve', () => {
-  runSequence('clean', 'jekyll-build' , 'wiredep', ['styles', 'scripts', 'fonts'], () => {
-    browserSync.init({
-      notify: false,
-      port: 9000,
-      server: {
-        baseDir: ['.tmp', '.jekyllbuild'],
-        routes: {
-          '/bower_components': 'bower_components'
-        }
-      }
-    });
-
-    gulp.watch([
+function watch() {
+  return gulp.watch([
+      'app/**/*.markdown',
       'app/*.html',
       'app/**/*.html',
       'app/images/**/*',
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
-    gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
-    gulp.watch('app/fonts/**/*', ['fonts']);
-    gulp.watch('bower.json', ['wiredep', 'fonts']);
-  });
-});
+    return gulp.watch('app/styles/**/*.scss',  gulp.series(minifyCss));
+    return gulp.watch('app/scripts/**/*.js', gulp.series(minifyJs, lintJs));
+    return gulp.watch('app/fonts/**/*', gulp.series(fonts));
+    return gulp.watch('bower.json', gulp.series(wiredepStyle, fonts));
+}
 
-gulp.task('serve:dist', ['default'], () => {
-  browserSync.init({
+function serveJekyll() {
+  return browserSync.init({
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['dist']
-    }
-  });
-});
-
-gulp.task('serve:test', ['scripts'], () => {
-  browserSync.init({
-    notify: false,
-    port: 9000,
-    ui: false,
-    server: {
-      baseDir: 'test',
-      routes: {
-        '/scripts': '.tmp/scripts',
-        '/bower_components': 'bower_components'
+        baseDir: ['dist'],
+        routes: {
+          '/bower_components': 'bower_components'
+        }
       }
-    }
   });
+}
 
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
-  gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
-  gulp.watch('test/spec/**/*.js', ['lint:test']);
-});
-
-// inject bower components
-gulp.task('wiredep', () => {
-  gulp.src('.jekyllbuild/styles/*.scss')
+function wiredepStyle() {
+  return gulp.src('.jekyllbuild/styles/*.scss')
     .pipe($.filter(file => file.stat && file.stat.size))
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
     .pipe(gulp.dest('.jekyllbuild/styles'));
 
-  gulp.src(['.jekyllbuild/*.html', '.jekyllbuild/**/*.html', '.jekyllbuild/**/**/**/**/*.html'])
+    return gulp.src(['.jekyllbuild/*.html', '.jekyllbuild/**/*.html', '.jekyllbuild/**/**/**/**/*.html'])
     .pipe(wiredep({
       exclude: ['bootstrap'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('.jekyllbuild/'));
-});
+}
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
-});
+const minifyImagesAndFonts = gulp.series(images, fonts, extras);
+const js = gulp.series(minifyJs, lintJs);
+const style = gulp.series(minifyCss, moveCss, js);
+const minifyHtml = gulp.series( html);
+const minifyBaseComponent = gulp.series( minifyHtml, style, minifyImagesAndFonts);
 
-gulp.task('default', () => {
-  return new Promise(resolve => {
-    dev = false;
-    runSequence('clean', 'jekyll-build', 'wiredep', 'build', resolve);
-  });
-});
+const build = gulp.series(clean, jekyllBuild, minifyBaseComponent);
+const serveAndWatch = gulp.parallel(serveJekyll, watch);
+const serve = gulp.series(clean, jekyllBuild, wiredepStyle, minifyBaseComponent, serveAndWatch);
+
+// export tasks
+exports.minifyHtml = minifyHtml;
+exports.jekyllBuild = jekyllBuild;
+
+exports.serve = serve;
+
+exports.build = build;
+exports.default = build;
