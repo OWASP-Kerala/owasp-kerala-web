@@ -5,6 +5,7 @@
     "yarn": ">= 1.0.0"
   },
   "devDependencies": {
+    "@fancyapps/fancybox": "github:fancyapps/fancybox",
     "babel-core": "^6.4.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-register": "^6.5.2",
@@ -47,25 +48,14 @@
     }
   },
   "dependencies": {
-    "@bower_components/animate.css": "daneden/animate.css#^3.7.0",
-    "@bower_components/bootstrap": "twbs/bootstrap#~4.0.0-alpha.6",
-    "@bower_components/chai": "chaijs/chai#^4.1.2",
-    "@bower_components/desandro-matches-selector": "desandro/matches-selector#^2.0.0",
-    "@bower_components/ev-emitter": "metafizzy/ev-emitter#^1.0.2",
-    "@bower_components/fancybox": "fancyapps/fancyBox#^3.5.2",
-    "@bower_components/fizzy-ui-utils": "metafizzy/fizzy-ui-utils#^2.0.0",
-    "@bower_components/flickity": "metafizzy/flickity#^2.1.2",
-    "@bower_components/get-size": "desandro/get-size#^2.0.0",
-    "@bower_components/jquery": "jquery/jquery-dist#>=1.9.0",
-    "@bower_components/mocha": "mochajs/mocha#^5.2.0",
-    "@bower_components/modernizr": "Modernizr/Modernizr#~2.8.1",
-    "@bower_components/slick-carousel": "kenwheeler/slick#^1.8.1",
-    "@bower_components/tap-listener": "metafizzy/tap-listener#^2.0.0",
-    "@bower_components/unidragger": "metafizzy/unidragger#^2.3.0",
-    "@bower_components/unipointer": "metafizzy/unipointer#^2.1.0",
-    "@bower_components/waypoints": "imakewebthings/waypoints#^4.0.1"
-  },
-  "scripts": {
-    "postinstall": "node -e \"try { require('fs').symlinkSync(require('path').resolve('node_modules/@bower_components'), 'bower_components', 'junction') } catch (e) { }\""
+    "animate.css": "3.7.0",
+    "bootstrap": "4.0.0-alpha.6",
+    "fancybox": "^3.0.1",
+    "flickity": "2.1.2",
+    "jquery": "^3.5.1",
+    "modernizr": "^3.11.3",
+    "owl.carousel": "2.3.4",
+    "slick-carousel": "1.8.1",
+    "waypoints": "4.0.1"
   }
 }
