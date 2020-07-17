@@ -14,7 +14,6 @@ jobs:
     - uses: actions/setup-node@v2.1.0
     - name: Setup Node.js environment
       run: |
-          sudo npm install --global yo gulp-cli generator-webapp
           yarn
           gulp
 
