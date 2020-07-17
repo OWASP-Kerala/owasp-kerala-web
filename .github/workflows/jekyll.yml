@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2.1.0
-    - uses: lemonarc/jekyll-action@1.0.0
+    - uses: jerryjvl/jekyll-build-action@v1
     - name: Setup Node.js environment
       run: |
           yarn
