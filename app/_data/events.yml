@@ -1,48 +1,47 @@
 upcoming:
   -
-    name: OWASP Kerala Chapter Meet
-    date: Dec 1st 2018
-    venue: Details will be updated soon
-    # link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
-    # add eventbrite event id as following to add eventbrite event widget to the upcoming events
-    # eventbrite-id: 37384870153
+    name: Kerala chapter Meet - Buffer Overflow for Noobs
+    date: July 19th 2020, 3PM to 5Pm IST
+    venue: Online
+    link: https://www.meetup.com/OWASP-Kerala-Chapter/events/271899152/
+  -
+    name: HacKP - Hackathon in association with Kerala police CyberDome
+    date: Aug 10th - 15th 2020
+    venue: Online
+    link: https://hackp.kerala.gov.in/
 past:
+  -
+    name: OWASP Chapters All Day
+    date: June 7th, 2020
+    venue: Online
+    link: https://www.youtube.com/channel/UCJNkJT42qFOBdnD8pCpelrw
+  -
+    name: OWASP Kerala Women in Appsec Meet
+    date: June 8th, 2019
+    venue: FutureLab, KSUM
+    link: https://owasp.org/www-chapter-kerala/events/june2019
   -
     name: CODESEC - Policing the future
     date: Apr 28th, 2018
     venue: Zenith Hall, Bhavani building, Technopark, Trivandrum
-    link: https://www.owasp.org/index.php/Kerala_CODESEC_April_2018_cyberdome
+    link: https://owasp.org/www-chapter-kerala/events/april2018
   -
     name: Workshop on Android Penetration Testing
     date: Sep 8th, 2017
     venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
-    link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
+    link: https://owasp.org/www-chapter-kerala/events/september2017
   -
     name: CODESEC - Secure your code
     date: Dec 9th, 2016
     venue: Travencore Hall, Park Center, Technopark, Trivandrum, Kerala
-    link: https://www.owasp.org/index.php/Kerala_CODESEC_dec_2016_cyberdome
+    link: https://owasp.org/www-chapter-kerala/events/9December2016
   -
     name: OWASP Kerala Chapter Meet
     date: Nov 3rd, 2016
     venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
-    link: https://www.owasp.org/index.php/Kerala_chapter_meet_sep_2016_iiitmk
+    link: https://owasp.org/www-chapter-kerala/events/3November2016
   -
     name: State Workshop on Application Security in eGovernance
     date: 29th - 31st March, 2016
     venue: Indian Institute of Information Technology and Management, Trivandrum, Kerala
-    link: https://www.owasp.org/index.php/Kerala_chapter_Workshop_on_Android_pen_testing_sep_2017_iiitmk
-  -
-    name: Panel Discussion on Mobile Application Security
-    date: Dec. 3rd, 2015
-    venue: Trivandrum Tamil Sangam
-    link: https://www.owasp.org/index.php/Kerala_chapter_student_panel_discussion_thamil_sangam
-  -
-    name: Sec_rity is not without U
-    date: Nov. 18th, 2015
-    venue: Institution of Engineers (India), Kerala State Centre, Trivandrum
-    link: https://www.owasp.org/index.php/Kerala_chapter_institution_of_engineers_sec_rity_without_u
-  -
-    name: Building a Secure Internet
-    date: Feb. 26th, 2016
-    venue: Sarabhai Institute of Science and Technology, Uriyacode, Vellanad, Trivandrum
+    link: https://owasp.org/www-chapter-kerala/events/2931March2016
