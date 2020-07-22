@@ -1,15 +1,20 @@
 upcoming:
   -
-    name: Kerala chapter Meet - Buffer Overflow for Noobs
-    date: July 19th 2020, 3PM to 5Pm IST
+    name: Kerala chapter Meet - Pentesting Blockchain Solutions
+    date: August 18th 2020, 6PM to 8Pm IST
     venue: Online
-    link: https://www.meetup.com/OWASP-Kerala-Chapter/events/271899152/
+    link: https://www.meetup.com/OWASP-Kerala-Chapter/events/272076019/
   -
     name: HacKP - Hackathon in association with Kerala police CyberDome
     date: Aug 10th - 15th 2020
     venue: Online
     link: https://hackp.kerala.gov.in/
 past:
+  -
+    name: Kerala chapter Meet - Buffer Overflow for Noobs
+    date: July 19th 2020, 3PM to 5Pm IST
+    venue: Online
+    link: https://www.meetup.com/OWASP-Kerala-Chapter/events/271899152/
   -
     name: OWASP Chapters All Day
     date: June 7th, 2020
