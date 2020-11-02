@@ -1,5 +1,11 @@
 upcoming:
   -
+    name: The Virtual Virus of 2020
+    date: November 7th 2020, 7PM IST
+    venue: Online
+    link: https://www.meetup.com/OWASP-Kerala-Chapter/events/274252100/
+past:
+ -
     name: How to run an Appsec program with open source tools (OWASP)
     date: August 4th 2020, 7PM to 9Pm IST
     venue: Online
@@ -14,7 +20,6 @@ upcoming:
     date: Aug 10th - 15th 2020
     venue: Online
     link: https://hackp.kerala.gov.in/
-past:
   -
     name: Kerala chapter Meet - Buffer Overflow for Noobs
     date: July 19th 2020, 3PM to 5Pm IST
